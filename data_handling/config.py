@@ -1,5 +1,4 @@
-FILENAME_P1 = "contacts.csv"
-FILENAME_MARKS = "marks.json"
+FILENAME = "contacts.csv"
 FILEHEADER = ["CONTACT", "NAME", "EMAIL"]
 VALIDMAILIST = [
     "gmail.com", "outlook.com", "yahoo.com", "hotmail.com", "icloud.com",
