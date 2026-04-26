@@ -1,6 +1,6 @@
 import csv
 import os
-from config import FILENAME, FILEHEADER
+from data_handling.config import FILENAME, FILEHEADER
 from Input import Input
 from exception import *
 from utils import Utils

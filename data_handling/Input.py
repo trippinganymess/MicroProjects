@@ -1,5 +1,5 @@
 from exception import *
-from config import VALIDMAILIST
+from data_handling.config import VALIDMAILIST
 class Input:
     
     def __init__(self, name, contact, Email) -> None:

@@ -4,7 +4,7 @@ from data_handling.exception import *
 from data_handling.run import Utils
 from Console.rich import Console
 from rich.table import Table
-from config import FILENAME_MARKS
+from data_handling.config import FILENAME_MARKS
 import os
 import json
 
