@@ -1,0 +1,5 @@
+aiofiles
+aiofiles
+weasyprint
+rich
+bs4
