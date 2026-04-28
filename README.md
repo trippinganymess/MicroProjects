@@ -1,2 +1,3 @@
-I will be adding many micro projects here.
- LOL Idk what else to say for now. :see y: :smiley face:, I wish this was rich.
+Welcome to my personal prototyping and learning hub. This repository serves as a centralized "Sandbox" for experimental micro-projects, architectural spikes, and technical deep-dives across various domains.
+
+The goal here is rapid prototyping and learnin. lol.
