@@ -1,10 +1,9 @@
-from config_p2 import subjects
-from data_handling.Input import Input
-from data_handling.exception import *
-from data_handling.run import Utils
+from studentDirectoryCURD.config import subjects, FILENAME
+from PhoneDirectoryCURD.Input import Input
+from PhoneDirectoryCURD.exception import *
+from PhoneDirectoryCURD.run import Utils
 from Console.rich import Console
 from rich.table import Table
-from data_handling.config import FILENAME_MARKS
 import os
 import json
 
@@ -75,8 +74,8 @@ def main():
     mark_data = {}
     for subject in subjects:
         mark_data[subject] = int(input(f"Enter your marks in {subject} : ")) 
-    if not os.path.exists(FILENAME_MARKS):
-        with open(FILENAME_MARKS, "w") as f:
+    if not os.path.exists(FILENAME):
+        with open(FILENAME, "w") as f:
             json.dump([],f,indent=4)
     else:
         controller(input_obj, mark_data)

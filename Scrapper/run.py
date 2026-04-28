@@ -7,7 +7,7 @@ from data import data
 from rich.console import Console
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
-from convert_to_pdf import convert_html_to_pdf
+from Scrapper.convertToPDF import convert_html_to_pdf
 
 console = Console()
 async def get_data(url, session, sem, filename):

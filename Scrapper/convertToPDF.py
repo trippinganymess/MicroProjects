@@ -28,4 +28,3 @@ def convert_html_to_pdf(input_dir, output_filename):
     print("Done!")
 
 
-convert_html_to_pdf('lectures', 'Combined_Lectures.pdf')

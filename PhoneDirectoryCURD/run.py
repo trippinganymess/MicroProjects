@@ -1,6 +1,6 @@
 import csv
 import os
-from data_handling.config import FILENAME, FILEHEADER
+from PhoneDirectoryCURD.config import FILENAME, FILEHEADER
 from Input import Input
 from exception import *
 from utils import Utils
