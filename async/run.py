@@ -3,10 +3,11 @@ import asyncio
 import rich
 import os
 import aiofiles
+from data import data
 from rich.console import Console
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
-
+from convert_to_pdf import convert_html_to_pdf
 
 console = Console()
 async def get_data(url, session, sem, filename):
@@ -29,49 +30,12 @@ async def get_data(url, session, sem, filename):
 
 
 async def main():
-    urls = [
-    "./lec01.html",
-    "./lec02.html",
-    "./lec03.html",
-    "./lec04.html",
-    "./lec05.html",
-    "./lec06.html",
-    "./lec07.html",
-    "./lec08.html",
-    "./lec09.html",
-    "./lec10.html",
-    "./lec11.html",
-    "./lec12.html",
-    "./lec13.html",
-    "./lec14.html",
-    "./lec15.html",
-    "./lec16.html",
-    "./lec17.html",
-    "./lec18.html",
-    "./lec19.html",
-    "./lec20.html",
-    "./lec21.html",
-    "./lec22.html",
-    "./lec23.html",
-    "./lec24.html",
-    "./lec25.html",
-    "./lec26.html",
-    "./lec27.html",
-    "./lec28.html",
-    "./lec29.html",
-    "./lec30.html",
-    "./lec31.html",
-    "./lec32.html",
-    "./lec33.html",
-    "./lec34.html",
-    "./lec35.html",
-    "./lec36.html",
-    "./lec37.html"
-]
+    obj = data()
+    urls = obj.send_data()
     sem = asyncio.Semaphore(5)
     async with aiohttp.ClientSession() as session:
-        base_url = "https://www.cse.iitk.ac.in/users/dheeraj/cs425/"
-        urls = [base_url + link.replace("./", "") for link in urls]
+        # base_url = "https://www.cse.iitk.ac.in/users/dheeraj/cs425/"
+        urls = [link for link in urls] # base_url + link.replace("./", "") 
         file_names = [f"lec{i:02}.html" for i in range(1, len(urls) + 1)]
         tasks = [get_data(url, session, sem, filename=filename) for url, filename in zip(urls, file_names)]
         result = await asyncio.gather(*tasks)
@@ -102,6 +66,12 @@ async def main():
             
         
         
-
-asyncio.run(main())
+if __name__ == '__main__':
+    asyncio.run(main())
+    try:
+        convert_html_to_pdf('lectures', 'files.pdf')
+        rich.print("[bold green]PDF Conversion Complete![/bold green]")
+    except Exception as e:
+        rich.print(f"[bold red]PDF Conversion Failed: {e}[/bold red]")
+        
 
